@@ -364,7 +364,8 @@ hr {
     background: linear-gradient(125deg, #ecff00, #9dcc00);
     // background: linear-gradient(45deg, #ffee93, #d3c073);
     @include shadow;
-    transition: all 0.1s ease-in-out;
+    border: 0px solid;
+    transition: all 0.2s ease-in-out;
 
     img {
       object-fit: contain;
