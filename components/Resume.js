@@ -195,7 +195,7 @@ const Resume = (props) => {
           <div className="profile-picture ">
             <img
               className="hide-text"
-              src={"/images/profile-picture-2.jpg"}
+              src={"/images/profile-picture-3.jpg"}
               alt="profile pricture"
               onError={() => {
                 this.style.display = "none";
