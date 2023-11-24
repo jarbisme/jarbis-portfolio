@@ -1,5 +1,6 @@
 {
   "projects": {
-    "phenix": "jarbis-portfolio"
+    "phenix": "jarbis-portfolio",
+    "default": "jarbis-portfolio"
   }
 }
