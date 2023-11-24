@@ -213,11 +213,11 @@ const Resume = (props) => {
               <Mail />{" "}
               <p>
                 <a
-                  href="mailto:joseangelb2371@gmail.com?subject=Hi, i'm coming from your website"
+                  href="mailto:jarbis.me@gmail.com?subject=Hi, i'm coming from your website"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  joseangelb2371@gmail.com
+                  jarbis.me@gmail.com
                 </a>
               </p>
             </div>
