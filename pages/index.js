@@ -11,8 +11,6 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 // import "./services/firebase.servie";
 
-import { Analytics } from '@vercel/analytics/react';
-
 export default function Home() {
   // hightligh the current section on the navbar
   useEffect(() => {
@@ -67,7 +65,6 @@ export default function Home() {
           <Footer />
         </div>
       </div>
-      <Analytics />
     </div>
   );
 }
