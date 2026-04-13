@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +26,50 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        {children}
+        <div
+          className="min-h-screen bg-white "
+          style={{
+            backgroundImage: "url('/noise-dots.svg')",
+            backgroundRepeat: "repeat",
+          }}
+        >
+          <div className="grid grid-cols-1 h-screen">
+            {/* top bar */}
+            <header className="fixed inset-x-0 top-0 z-10">
+              <div className="relative mx-auto flex h-16 max-w-8xl items-center px-8 ">
+                {/* Logotype */}
+                <span className="text-4xl uppercase font-bold">JARBIS</span>
+
+                <div className="absolute inset-x-0 flex justify-center">
+                  <select
+                    className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-sm focus:outline-none"
+                    defaultValue="en"
+                  >
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                  </select>
+                </div>
+
+                {/* Logo */}
+                <div className="ml-auto flex items-center">
+                  <span className="text-lg font-bold text-slate-900">
+                    MyLogo
+                  </span>
+                </div>
+              </div>
+            </header>
+
+            {/* Content */}
+            <div className="pt-16 h-screen overflow-hidden">
+              <div className="grid h-full lg:grid-cols-[1fr_2fr]">
+                <Sidebar />
+                <main className="h-full overflow-y-auto">{children}</main>
+              </div>
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );
