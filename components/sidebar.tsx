@@ -14,7 +14,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="relative flex h-full flex-col justify-between border-r border-slate-200/80 px-8 py-10">
+    <aside className="relative flex h-full flex-col justify-between  px-8 py-10">
       <div className="space-y-2">
         {/* <span className="text-4xl uppercase font-bold">JARBIS</span> */}
       </div>

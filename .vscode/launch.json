@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Next.js: Full Stack (Firefox + Server)",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npx next dev --turbopack",
+            "serverReadyAction": {
+                "pattern": "- Local: +(https?://\\S+)",
+                "uriFormat": "%s",
+                "action": "openExternally"
+            }
+        },
+        {
+            "name": "Next.js: Debug Server-Side",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npx next dev --turbopack",
+            "serverReadyAction": {
+                "pattern": "- Local: +(https?://\\S+)",
+                "uriFormat": "%s",
+                "action": "startDebugging",
+                "name": "Next.js: Attach to Process"
+            }
+        },
+        {
+            "name": "Next.js: Attach to Process",
+            "type": "node",
+            "request": "attach",
+            "skipFiles": ["<node_internals>/**"],
+            "port": 9229
+        }
+    ]
+}

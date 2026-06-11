@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/sidebar";
+import { Particles } from "@/components/ui/particles";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,12 +29,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        <div
-          className="min-h-screen bg-white "
-          style={{
-            backgroundImage: "url('/noise-dots.svg')",
-            backgroundRepeat: "repeat",
-          }}
+        <Particles
+          className="bg-white"
+          color="#000000"
+          quantity={500}
+          staticity={100}
         >
           <div className="grid grid-cols-1 h-screen">
             {/* top bar */}
@@ -69,7 +69,7 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-        </div>
+        </Particles>
       </body>
     </html>
   );
