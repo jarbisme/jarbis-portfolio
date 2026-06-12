@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/sidebar";
-import { Particles } from "@/components/ui/particles";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,47 +26,36 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        <Particles
-          className="bg-white"
-          color="#000000"
-          quantity={500}
-          staticity={100}
+        <svg className="fixed w-0 h-0" aria-hidden="true">
+          <filter id="grainy-noise">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.5"
+              numOctaves="3"
+              stitchTiles="stitch"
+              result="noise"
+            />
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"
+              result="coloredNoise"
+            />
+            <feBlend in="SourceGraphic" in2="coloredNoise" mode="multiply" />
+          </filter>
+        </svg>
+
+        <div
+          aria-hidden="true"
+          className="fixed inset-0 z-0 pointer-events-none"
+          style={{ filter: "url(#grainy-noise)" }}
         >
-          <div className="grid grid-cols-1 h-screen">
-            {/* top bar */}
-            <header className="fixed inset-x-0 top-0 z-10">
-              <div className="relative mx-auto flex h-16 max-w-8xl items-center px-8 ">
-                {/* Logotype */}
-                <span className="text-4xl uppercase font-bold">JARBIS</span>
-
-                <div className="absolute inset-x-0 flex justify-center">
-                  <select
-                    className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-sm focus:outline-none"
-                    defaultValue="en"
-                  >
-                    <option value="en">EN</option>
-                    <option value="es">ES</option>
-                  </select>
-                </div>
-
-                {/* Logo */}
-                <div className="ml-auto flex items-center">
-                  <span className="text-lg font-bold text-slate-900">
-                    MyLogo
-                  </span>
-                </div>
-              </div>
-            </header>
-
-            {/* Content */}
-            <div className="pt-16 h-screen overflow-hidden">
-              <div className="grid h-full lg:grid-cols-[1fr_2fr]">
-                <Sidebar />
-                <main className="h-full overflow-y-auto">{children}</main>
-              </div>
-            </div>
-          </div>
-        </Particles>
+          <div className="absolute -top-40 left-[10%] w-[550px] h-[550px] rounded-full bg-amber-300/40 blur-[120px]" />
+          <div className="absolute top-[15%] -right-20 w-[480px] h-[480px] rounded-full bg-rose-300/35 blur-[100px]" />
+          <div className="absolute bottom-[10%] -left-16 w-[420px] h-[420px] rounded-full bg-purple-300/30 blur-[110px]" />
+          <div className="absolute top-[40%] right-[15%] w-[360px] h-[360px] rounded-full bg-pink-200/30 blur-[90px]" />
+          <div className="absolute -bottom-28 left-[30%] w-[450px] h-[450px] rounded-full bg-orange-200/35 blur-[100px]" />
+          <div className="absolute top-[55%] left-[40%] w-[320px] h-[320px] rounded-full bg-violet-200/30 blur-[85px]" />
+        </div>
       </body>
     </html>
   );

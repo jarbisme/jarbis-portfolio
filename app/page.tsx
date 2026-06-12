@@ -5,7 +5,7 @@ const placeholderItems = Array.from({ length: 6 }, (_, index) => ({
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative z-10">
       <main className="max-w-3xl px-8 py-16 space-y-8">
         <div>
           <h1 className="text-5xl font-bold mt-10 text-blue-800">
